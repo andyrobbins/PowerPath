@@ -6,12 +6,12 @@ $Nodes = Get-NetUser | ForEach-Object { $_.samaccountname }
 $Nodes += Get-NetComputer
 
 ForEach($Node in $Nodes){
-		$Vertex = New-Object PSObject
+	$Vertex = New-Object PSObject
         $Vertex | Add-Member Noteproperty 'Name' $Node
         $Vertex | Add-Member Noteproperty 'Edges' @()
         $Vertex | Add-Member Noteproperty 'Distance' $Infinity
         $Vertex | Add-Member Noteproperty 'Visited' $False
-		$Vertex | Add-Member Noteproperty 'Predecessor' $Null
+	$Vertex | Add-Member Noteproperty 'Predecessor' $Null
         $Graph += $Vertex
 }
 
